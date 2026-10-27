@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder Tip Tuesday · Week of October 27, 2026 · Base Reality Group</title>
+<meta name="description" content="Founder Tip Tuesday for the week of October 27, 2026. Mutiny's Matt Ratchford cut a 400-account outbound list to the 214 logos he wanted on the website: spend scarce delivery hours, and hard-tech pilots, on the customers you would name. From Base Reality Group, commercialization advisory for hard-tech founders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1E3A2F;
+    --forest-deep: #172E25;
+    --parchment: #F0E8D2;
+    --brass: #C9A24A;
+    --ink: #1A1A1A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--forest-deep);
+    color: var(--parchment);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- Chapter sidebar ---- */
+  aside.chapters {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 280px;
+    background: var(--forest-deep);
+    border-right: 1px solid rgba(201, 162, 74, 0.18);
+    padding: 34px 22px;
+    display: flex;
+    flex-direction: column;
+    z-index: 40;
+  }
+  .brand-lockup {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--parchment);
+  }
+  .brand-lockup em { font-style: italic; color: var(--brass); }
+  .brand-week {
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(240, 232, 210, 0.55);
+  }
+  .chapter-list {
+    margin-top: 30px;
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .chapter-list li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 9px 12px;
+    border-left: 2px solid transparent;
+    cursor: pointer;
+    font-size: 13.5px;
+    color: rgba(240, 232, 210, 0.62);
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    border-radius: 0 4px 4px 0;
+  }
+  .chapter-list li:hover { color: var(--parchment); }
+  .chapter-list li.active {
+    color: var(--parchment);
+    background: rgba(201, 162, 74, 0.10);
+    border-left-color: var(--brass);
+  }
+  .chapter-list li .cnum {
+    font-variant-numeric: tabular-nums;
+    font-size: 11px;
+    color: var(--brass);
+    min-width: 18px;
+  }
+
+  /* ---- Stage ---- */
+  main.stage {
+    position: fixed;
+    top: 0; left: 280px; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 6vh 7vw 12vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .slide.on { display: flex; opacity: 1; }
+  .inner { width: 100%; max-width: 900px; }
+
+  /* paper grain / palette per slide */
+  .dark { background: radial-gradient(circle at 30% 20%, #244436 0%, var(--forest) 55%, var(--forest-deep) 100%); }
+  .light { background: radial-gradient(circle at 70% 15%, #F6F0DE 0%, var(--parchment) 60%, #E7DCC0 100%); color: var(--ink); }
+  .light .kicker { color: #7A6320; }
+  .light .rule { background: var(--brass); }
+
+  .kicker {
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+  h1, h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+  .cover h1 { font-size: clamp(38px, 6vw, 74px); }
+  h2 { font-size: clamp(30px, 4.4vw, 56px); }
+  em.hl { font-style: italic; color: var(--brass); }
+  .rule {
+    width: 68px; height: 3px;
+    background: var(--brass);
+    margin: 26px 0;
+    border-radius: 2px;
+  }
+  .sub {
+    font-size: clamp(17px, 1.7vw, 21px);
+    line-height: 1.7;
+    color: rgba(240, 232, 210, 0.82);
+    max-width: 720px;
+  }
+  .light .sub { color: #33321F; }
+  .body {
+    font-size: clamp(17px, 1.55vw, 20px);
+    line-height: 1.72;
+    max-width: 720px;
+  }
+  .body + .body { margin-top: 18px; }
+
+  /* stat */
+  .statvalue {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(60px, 10vw, 140px);
+    line-height: 0.9;
+    color: var(--brass);
+    letter-spacing: -0.04em;
+  }
+  .statlabel { font-size: clamp(18px, 1.9vw, 24px); line-height: 1.5; margin-top: 20px; max-width: 640px; }
+  .light .statlabel { color: #33321F; }
+
+  /* list */
+  ul.plain { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+  ul.plain li {
+    font-size: clamp(18px, 1.9vw, 24px);
+    line-height: 1.45;
+    padding-left: 22px;
+    position: relative;
+  }
+  ul.plain li::before {
+    content: ""; position: absolute; left: 0; top: 0.62em;
+    width: 9px; height: 9px; border-radius: 2px; background: var(--brass);
+  }
+
+  /* quote */
+  blockquote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 1.2;
+    border: none;
+  }
+  .attribution { margin-top: 26px; font-size: 16px; letter-spacing: 0.04em; color: var(--brass); font-style: normal; }
+
+  /* compare */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 30px; }
+  .card { padding: 26px; border-radius: 12px; border: 1px solid rgba(240,232,210,0.14); }
+  .card.bad { background: rgba(120, 40, 30, 0.16); border-color: rgba(180, 90, 70, 0.35); }
+  .card.good { background: rgba(201, 162, 74, 0.10); border-color: rgba(201, 162, 74, 0.4); }
+  .light .card { border-color: rgba(26,26,26,0.16); }
+  .light .card p { color: #33321F; }
+  .card h3 { font-family: 'Fraunces', serif; font-size: 24px; margin-bottom: 12px; }
+  .card.bad h3 { color: #E0A090; }
+  .card.good h3 { color: var(--brass); }
+  .light .card.bad h3 { color: #8A4A32; }
+  .light .card.good h3 { color: #7A6320; }
+  .card p { font-size: 16.5px; line-height: 1.6; color: rgba(240,232,210,0.85); }
+
+  /* steps */
+  ol.steps { list-style: none; margin-top: 26px; display: flex; flex-direction: column; gap: 20px; }
+  ol.steps li { display: flex; gap: 18px; align-items: flex-start; }
+  ol.steps .n {
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 30px;
+    color: var(--brass); min-width: 42px; line-height: 1;
+  }
+  ol.steps .st-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 22px; margin-bottom: 4px; }
+  ol.steps .st-text { font-size: 16.5px; line-height: 1.6; color: rgba(240,232,210,0.82); max-width: 640px; }
+  .light ol.steps .st-text { color: #33321F; }
+
+  .subkicker { margin-top: 26px; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brass); }
+
+  /* CTA */
+  .cta-url { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(30px, 4vw, 52px); margin-top: 24px; }
+  .cta-url a { color: var(--brass); text-decoration: none; }
+  .cta-url a:hover { text-decoration: underline; }
+  .cta-sub { margin-top: 14px; font-size: 16px; color: rgba(240,232,210,0.7); letter-spacing: 0.03em; }
+
+  /* counter */
+  .counter {
+    position: fixed; top: 22px; right: 30px;
+    font-size: 13px; font-variant-numeric: tabular-nums;
+    color: rgba(240,232,210,0.5); letter-spacing: 0.08em; z-index: 45;
+  }
+
+  /* footer nav */
+  nav.deck-nav {
+    position: fixed; bottom: 0; left: 280px; right: 0;
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 30px;
+    background: linear-gradient(to top, var(--forest-deep) 60%, transparent);
+    z-index: 45;
+  }
+  .nav-btn {
+    font-family: 'Inter', sans-serif; font-size: 13.5px;
+    color: var(--parchment); background: transparent;
+    border: 1px solid rgba(201,162,74,0.4);
+    padding: 8px 16px; border-radius: 6px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover:not(:disabled) { color: var(--brass); border-color: var(--brass); }
+  .nav-btn:disabled { opacity: 0.3; cursor: default; }
+  .nav-hint { font-size: 12px; color: rgba(240,232,210,0.42); margin-left: 4px; }
+  .nav-hint kbd {
+    font-family: inherit; background: rgba(240,232,210,0.1);
+    padding: 1px 6px; border-radius: 3px; font-size: 11px;
+  }
+  .footer-tag {
+    margin-left: auto; font-size: 13px; color: rgba(240,232,210,0.6);
+  }
+  .footer-tag a {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px dotted rgba(201, 162, 74, 0.45);
+  }
+  .footer-tag a:hover { color: #C9A24A; border-bottom-color: #C9A24A; }
+  .brass { color: #C9A24A; }
+
+  @media (max-width: 820px) {
+    aside.chapters { display: none; }
+    main.stage, nav.deck-nav { left: 0; }
+  }
+</style></head>
+<body>
+
+<aside class="chapters">
+  <div class="brand-lockup">Founder Tip <em>Tuesday</em></div>
+  <div class="brand-week">Week of October 27, 2026</div>
+  <ul class="chapter-list" id="chapterList"></ul>
+</aside>
+
+<div class="counter" id="counter">1 / 8</div>
+
+<main class="stage" id="stage">
+
+  <section class="slide dark cover on">
+    <div class="inner">
+      <div class="kicker">Founder Tip Tuesday</div>
+      <h1>Mutiny got <em class="hl">30 yeses</em> in an hour</h1>
+      <div class="rule"></div>
+      <p class="sub">Nobody at Mutiny had time set aside to deliver what the offer promised. Matt Ratchford paused the campaign and built every piece himself.</p>
+    </div>
+  </section>
+
+  <section class="slide dark">
+    <div class="inner">
+      <div class="kicker">Mutiny's sales team</div>
+      <h2><em class="hl">One account executive</em>, nobody booking meetings</h2>
+      <p class="sub" style="margin-top:26px;">The offer was custom sales material for each prospect, built with Mutiny's own product. Sending it to everyone meant spending those hours on accounts that weren't a priority.</p>
+    </div>
+  </section>
+
+  <section class="slide light">
+    <div class="inner">
+      <div class="kicker">Matt Ratchford, Mutiny</div>
+      <h2><em class="hl">Logos</em> build credibility</h2>
+      <p class="sub" style="margin-top:26px;">At Mutiny's stage the thing to build is credibility with the next buyer. It comes from great logos on the website and the stories of how those customers use the product.</p>
+    </div>
+  </section>
+
+  <section class="slide dark">
+    <div class="inner">
+      <div class="kicker">The cut</div>
+      <h2>Keep the logos worth showing</h2>
+      <div class="cols">
+        <div class="card bad">
+          <h3>400 accounts</h3>
+          <p>Mutiny's top-priority list.</p>
+        </div>
+        <div class="card good">
+          <h3>214 accounts</h3>
+          <p>The companies whose logos he would want on the website. Personal outreach. Everyone else gets a free sign-up with credits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide light">
+    <div class="inner">
+      <div class="kicker">Ratchford's bar</div>
+      <h2>Six weeks to deliver</h2>
+      <ul class="plain">
+        <li>15 meetings</li>
+        <li>5 sales opportunities</li>
+        <li>From 214 accounts</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide dark">
+    <div class="inner">
+      <div class="kicker">For hard tech</div>
+      <h2>Spend pilots on <em class="hl">logos</em></h2>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="st-text">List the customers you would most want to name on your website</div></div></li>
+        <li><span class="n">2</span><div><div class="st-text">Give them the pilots, the demo units on loan, and your own hours</div></div></li>
+        <li><span class="n">3</span><div><div class="st-text">Send the rest to something that runs without you, like a recorded demo or a distributor</div></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide dark">
+    <div class="inner">
+      <div class="kicker">From my seat</div>
+      <h2>Which customer would I hand a <em class="hl">free pilot</em> to first?</h2>
+    </div>
+  </section>
+
+  <section class="slide dark">
+    <div class="inner" style="text-align:center;">
+      <div class="kicker">davesaunders.net</div>
+      <h2>Read <em class="hl">Founders Who Finish</em></h2>
+      <div class="cta-url"><a href="https://baserealitygroup.com" target="_blank" rel="noopener">baserealitygroup.com</a></div>
+      <div class="cta-sub">By Dave Saunders · <a href="https://baserealitygroup.com" target="_blank" rel="noopener" style="color:inherit;">Base Reality Group</a></div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="deck-nav" aria-label="Slide navigation">
+  <button id="prevBtn" class="nav-btn" aria-label="Previous slide">&larr; Prev</button>
+  <button id="nextBtn" class="nav-btn" aria-label="Next slide">Next &rarr;</button>
+  <span class="nav-hint"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> to navigate · <kbd>F</kbd> fullscreen</span>
+  <div class="footer-tag"><a href="https://baserealitygroup.com" target="_blank" rel="noopener">Base Reality Group</a> <span class="brass">·</span> Founder Tip Tuesday</div>
+</nav>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const chapterNames = [
+    "Open",
+    "One AE",
+    "Logos",
+    "The cut",
+    "The bar",
+    "Spend pilots",
+    "From my seat",
+    "Read the book"
+  ];
+  let current = 0;
+
+  const list = document.getElementById('chapterList');
+  chapterNames.slice(0, slides.length).forEach((name, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = '<span class="cnum">' + String(i + 1).padStart(2, '0') + '</span><span>' + name + '</span>';
+    li.addEventListener('click', () => goTo(i));
+    list.appendChild(li);
+  });
+  const chapterEls = Array.from(list.children);
+
+  const counter = document.getElementById('counter');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('on', i === current));
+    chapterEls.forEach((c, i) => c.classList.toggle('active', i === current));
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === slides.length - 1;
+    const active = chapterEls[current];
+    if (active) active.scrollIntoView({ block: 'nearest' });
+  }
+
+  function goTo(i) {
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    render();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    else if (e.key === 'ArrowLeft') goTo(current - 1);
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  render();
+</script>
+</body>
+</html>
